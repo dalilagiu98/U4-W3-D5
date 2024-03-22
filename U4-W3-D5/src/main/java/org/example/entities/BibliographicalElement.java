@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.util.Random;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NamedQuery(name = "findByYear", query = "SELECT be FROM BibliographicalElement be WHERE be.publicationYear = :publicationYear")
+@NamedQuery(name = "findByAuthor", query = "SELECT b FROM Book b WHERE LOWER(b.author) = LOWER(:author)")
+@NamedQuery(name = "findByTitle", query = "SELECT be FROM BibliographicalElement be WHERE LOWER (be.title) LIKE LOWER (:title)")
 public abstract class BibliographicalElement {
 
     //ATTRIBUTES LIST
