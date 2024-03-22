@@ -21,6 +21,13 @@ public class Loan {
 
     //CONSTRUCTOR:
     public Loan(){}
+    public Loan(User user, BibliographicalElement bibliographicalElement){
+        this.user = user;
+        this.bibliographicalElement = bibliographicalElement;
+        this.loanStartDate = LocalDate.now();
+        this.loanReturnDate = LocalDate.now().plusDays(30);
+        this.effectiveReturnDate = null;
+    }
     public Loan(User user, BibliographicalElement bibliographicalElement, LocalDate effectiveReturnDate){
         this.user = user;
         this.bibliographicalElement = bibliographicalElement;
@@ -36,5 +43,9 @@ public class Loan {
 
     public BibliographicalElement getBibliographicalElement() {
         return bibliographicalElement;
+    }
+
+    public void setEffectiveReturnDate(LocalDate effectiveReturnDate) {
+        this.effectiveReturnDate = effectiveReturnDate;
     }
 }
