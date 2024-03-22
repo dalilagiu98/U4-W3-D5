@@ -26,4 +26,14 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    //METHODS:
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 }
