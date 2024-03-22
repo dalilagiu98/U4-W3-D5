@@ -11,8 +11,8 @@ public class Book extends BibliographicalElement{
 
     //CONSTRUCTOR:
     public Book(){}
-    public Book(String title, long pagesNumber, String author, String genre) {
-        super(title, pagesNumber);
+    public Book(String isbn, String title, long pagesNumber, String author, String genre) {
+        super(isbn, title, pagesNumber);
         this.author = author;
         this.genre = genre;
     }
@@ -22,7 +22,7 @@ public class Book extends BibliographicalElement{
     public String toString() {
         return "BOOK:" +
                 "'" + title  + "'" +
-                " by " + author +", genre: " + genre + ", ISBN :" + id +
+                " by " + author +", genre: " + genre + ", ISBN :" + isbn +
                 ", publication Year:" + publicationYear +
                 ", pages:" + pagesNumber +
                 ".";

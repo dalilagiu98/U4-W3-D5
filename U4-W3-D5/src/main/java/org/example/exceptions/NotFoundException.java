@@ -2,6 +2,6 @@ package org.example.exceptions;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(long id) {
-        super("Il record con id " + id + " non è stato trovato!");
+        super("The record with id " + id + " not found!");
     }
 }

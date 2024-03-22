@@ -64,7 +64,7 @@ public class LoansDAO {
     }
 
     public List<Loan> findExpiredNotReturned () {
-        TypedQuery<Loan> query = em.createQuery("findExpiredNotReturned", Loan.class);
+        TypedQuery<Loan> query = em.createNamedQuery("findExpiredNotReturned", Loan.class);
         return query.getResultList();
     }
 }

@@ -13,16 +13,16 @@ public abstract class BibliographicalElement {
 
     //ATTRIBUTES LIST
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
+    protected String isbn;
     protected String title;
     protected int publicationYear;
     protected long pagesNumber;
 
     //CONSTRUCTOR:
     public BibliographicalElement(){}
-    public BibliographicalElement (String title, long pagesNumber) {
+    public BibliographicalElement (String isbn, String title, long pagesNumber) {
         Random random = new Random();
+        this.isbn = isbn;
         this.title = title;
         this.publicationYear = random.nextInt(1455, LocalDate.now().getYear()); //print a random number from 1455 (year of invention of printing) to actual year
         if(pagesNumber < 10){
@@ -32,8 +32,8 @@ public abstract class BibliographicalElement {
     }
 
     //   METHODS:
-    public long getId() {
-        return id;
+    public String getIsbn() {
+        return isbn;
     }
 
     public String getTitle() {

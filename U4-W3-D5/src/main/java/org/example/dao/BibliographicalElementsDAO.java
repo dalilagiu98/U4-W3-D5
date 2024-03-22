@@ -6,6 +6,7 @@ import jakarta.persistence.TypedQuery;
 import org.example.entities.BibliographicalElement;
 import org.example.entities.Book;
 import org.example.exceptions.NotFoundException;
+import org.example.exceptions.NotFoundIsbnException;
 
 import java.util.List;
 
@@ -32,15 +33,15 @@ public class BibliographicalElementsDAO {
         }
     }
 
-    public BibliographicalElement findById (long id){
+    public BibliographicalElement findById (String id){
         BibliographicalElement bibliographicalElement = em.find(BibliographicalElement.class, id);
         if (bibliographicalElement == null){
-            throw new NotFoundException(id);
+            throw new NotFoundIsbnException(id);
         }
         return bibliographicalElement;
     }
 
-    public void deleteById(long id) {
+    public void deleteById(String id) {
         try {
            EntityTransaction transaction = em.getTransaction();
            transaction.begin();
@@ -70,7 +71,7 @@ public class BibliographicalElementsDAO {
     }
 
     public List<BibliographicalElement> findByTitle(String title){
-        TypedQuery<BibliographicalElement> query = em.createQuery("findByTitle", BibliographicalElement.class);
+        TypedQuery<BibliographicalElement> query = em.createNamedQuery("findByTitle", BibliographicalElement.class);
         query.setParameter("title", "%" + title + "%");
         return query.getResultList();
     }
